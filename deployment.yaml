@@ -1,22 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helm-deploy1
+  name: argo-deploy111
+  namespace: argocd
   labels:
-    app: helm1
+    app: argo1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: helm1
+      app: argo1
   template:
     metadata:
       labels:
-        app: helm1
+        app: argo1
     spec:
       terminationGracePeriodSeconds: 1
       containers:
-      - name: helm-pod
+      - name: argo-pod
         image: mohnishbhonde/sns01
         imagePullPolicy: Always
         ports:
