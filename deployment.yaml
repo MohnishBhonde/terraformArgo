@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helm-deploy1
+  labels:
+    app: helm1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helm1
+  template:
+    metadata:
+      labels:
+        app: helm1
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: helm-pod
+        image: mohnishbhonde/sns01
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
